@@ -20,6 +20,8 @@ if __name__ == '__main__':
 
         decryptedCommand = cryptoService.decryptText(message, int(encryptionType))
 
+        #TODO: Implement 'upd' command support
+
         if( decryptedCommand.startswith('dwd ') ):
             data, fileName = fileService.handleCommand(decryptedCommand)
             

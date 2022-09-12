@@ -42,6 +42,8 @@ def handleClient(sock, address):
     except ( ConnectionError, BrokenPipeError ):
         return 'Error', 0
 
+#TODO: Check for sending status codes over TCP
+
 def sendMessage(sock, address, message):
     message = str(message) +'\0'
     try:
