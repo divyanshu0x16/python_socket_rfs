@@ -13,10 +13,14 @@ if __name__ == '__main__':
         clientSocket, address = listenSock.accept()
         print('Connection from {}'.format(address))
 
-        message = networking.handleClient(clientSocket, address)
-        print('{}: {}'.format(address, message))
+        message, encryptionType = networking.handleClient(clientSocket, address)
+        if(message == 'Error'):
+            print('Socket Error')
 
-        #TODO: Decrypt this message
-        #TODO: Encrypt this message before sending
+        decryptedCommand = cryptoService.decryptText(message, int(encryptionType))
+        
+        #TODO: Run the command and get output
 
-        networking.sendMessage(clientSocket, address, message, 'plain')
+        encryptedMessage = cryptoService.encryptText(decryptedCommand, int(encryptionType))
+
+        networking.sendMessage(clientSocket, address, encryptedMessage)

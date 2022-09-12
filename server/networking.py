@@ -21,29 +21,34 @@ def recvMessage(sock):
             # Socket has been closed prematurely
             raise ConnectionError()
         data = data + recvd
+        # From the end, before \0, we add &EncrytionType. Here we extract the encryption type
         if b'\0' in recvd:
             # we know from our protocol rules that we only send
             # one message per connection, so b'\0' will always be
             # the last character
             msg = data.rstrip(b'\0')
     msg = msg.decode('utf-8')
-    return msg
+
+    encryptionType = msg[-1]
+    msg = msg[:-2]
+
+    return msg, encryptionType
 
 def handleClient(sock, address):
     # Receive data from the client via socket and process it further
     try:
-        msg = recvMessage(sock)
-        return msg
+        msg, encryptionType = recvMessage(sock)
+        return msg, encryptionType
     except ( ConnectionError, BrokenPipeError ):
-        print('Socket Error')
+        return 'Error', 0
 
-def sendMessage(sock, address, message, encryptionType):
+def sendMessage(sock, address, message):
     message = str(message) +'\0'
     try:
         sock.sendall(message.encode('utf-8'))
-        print(message)
+        print("Sending Message: " + message)
         return 0
-    except ( ConnectionError, BrokenPipeError, TypeError ):
+    except ( ConnectionError, BrokenPipeError ):
         print('Connection Closed')
     finally:
         print('Connection Closed')
