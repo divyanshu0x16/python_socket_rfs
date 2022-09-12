@@ -2,7 +2,7 @@ def encryptText(text):
     typeOfEncryption = int(input('enter the type of encryption you want. input: \n1 for plain \n2 for caesar \n3 for transpose\n'))
 
     if (typeOfEncryption == 1):
-        return text, 'plain'
+        return text, 1
 
     elif (typeOfEncryption == 2):
         #reference: https://www.geeksforgeeks.org/caesar-cipher-in-cryptography/
@@ -20,19 +20,19 @@ def encryptText(text):
             else:
                 result += current
 
-        return result, 'caesar'
+        return result, 2
 
     elif (typeOfEncryption == 3):
-        return text[::-1], 'transpose'
+        return text[::-1], 3
 
     raise Exception('enter a valid type')
 
 def decryptText(text, encryptionType):
 
-    if(encryptionType == 'plain'):
+    if(encryptionType == 1):
         return text
 
-    elif(encryptionType == 'caesar'):
+    elif(encryptionType == 2):
 
         result = ''
 
@@ -50,5 +50,5 @@ def decryptText(text, encryptionType):
 
         return result
 
-    elif(encryptionType == 'transpose'):
+    elif(encryptionType == 3):
         return text[::-1]

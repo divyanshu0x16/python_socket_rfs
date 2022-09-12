@@ -44,7 +44,7 @@ def sendMessage(sock, address, message, encryptionType):
         print(message)
         return 0
     except ( ConnectionError, BrokenPipeError, TypeError ):
-        print('Socket error')
+        print('Connection Closed')
     finally:
-        print('Closed connection')
+        print('Connection Closed')
         sock.close()
