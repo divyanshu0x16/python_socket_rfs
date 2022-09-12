@@ -17,6 +17,9 @@ def receiveOutput(socket):
     return msg
 
 def receivedFile(socket):
-    fileName = socket.recv(4096).rstrip(b'\0').decode('utf-8')
-    data = socket.recv(4096).rstrip(b'\0').decode('utf-8')
+    try:
+        fileName = socket.recv(4096).rstrip(b'\0').decode('utf-8')
+        data = socket.recv(4096).rstrip(b'\0').decode('utf-8')
+    except:
+        raise ConnectionError()
     return data, fileName
