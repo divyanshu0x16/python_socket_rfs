@@ -15,9 +15,10 @@ def handleCommand(command):
         file_path = command[3:]
 
         if os.path.isdir(file_path):
-            return command
+            os.chdir(file_path)
+            return 'OK'
         else:
-            return ('not a valid directory: %s'%(file_path))
+            return ('NOK')
     elif ( command.startswith('dwd ') or command.startswith('upd ') ):
         #checking if the path is a file
         file_path = command[4:]
