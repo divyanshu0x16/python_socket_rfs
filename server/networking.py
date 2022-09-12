@@ -49,7 +49,20 @@ def sendMessage(sock, address, message):
         print("Sending Message...")
         return 0
     except ( ConnectionError, BrokenPipeError ):
+        print('Connection Error')
+    finally:
         print('Connection Closed')
+        sock.close()
+
+def sendFile(sock, data, fileName):
+    fileName = fileName + '\0'
+    try:
+        print('Sending FileName... ')
+        sock.sendall(fileName.encode('utf-8'))
+        print('Sending Data... ')
+        sock.sendall(data.encode('utf-8'))
+    except ( ConnectionError, BrokenPipeError ):
+        print('Connection Error')
     finally:
         print('Connection Closed')
         sock.close()

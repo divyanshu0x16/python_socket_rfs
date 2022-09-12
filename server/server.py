@@ -19,9 +19,15 @@ if __name__ == '__main__':
             continue
 
         decryptedCommand = cryptoService.decryptText(message, int(encryptionType))
-        
-        output = fileService.handleCommand(decryptedCommand)
 
-        encryptedMessage = cryptoService.encryptText(output, int(encryptionType))
+        if( decryptedCommand.startswith('dwd ') ):
+            data, fileName = fileService.handleCommand(decryptedCommand)
+            
+            encryptedData = cryptoService.encryptText(data, int(encryptionType))
+            encryptedName = cryptoService.encryptText(fileName, int(encryptionType))
 
-        networking.sendMessage(clientSocket, address, encryptedMessage)
+            networking.sendFile(clientSocket, encryptedData, encryptedName)
+        else:
+            output = fileService.handleCommand(decryptedCommand)
+            encryptedMessage = cryptoService.encryptText(output, int(encryptionType))
+            networking.sendMessage(clientSocket, address, encryptedMessage)

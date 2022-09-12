@@ -22,6 +22,11 @@ def handleCommand(command):
         filePath = command[4:]
         
         if os.path.isfile(filePath):
-            return command
+            fileName = os.path.basename(filePath)
+            #TODO: Check for binary file
+            file = open(filePath, 'r')
+            data = file.read()
+
+            return data, fileName
         else:
-            return ('not a valid file: %s'%(filePath))
+            return 'NOK'

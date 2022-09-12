@@ -18,9 +18,18 @@ if __name__ == '__main__':
 
             encryptedCommand, encryptionType = cryptoService.encryptText(command)
             networking.sendCommand(sock, encryptedCommand, encryptionType)
-            receivedOutput = networking.receiveOutput(sock)
+
+            if( command.startswith('dwd ') ):
+                data, fileName = networking.receivedFile(sock)
             
-            print(cryptoService.decryptText(receivedOutput, encryptionType))
+                decryptedData = cryptoService.decryptText(data, encryptionType)
+                decryptedName = cryptoService.decryptText(fileName, encryptionType)
+
+                fileService.writeFile(decryptedData, decryptedName)
+            else:
+                receivedOutput = networking.receiveOutput(sock)
+                print(cryptoService.decryptText(receivedOutput, encryptionType))
+
         except ConnectionError:
             print('Socket Error')
             break

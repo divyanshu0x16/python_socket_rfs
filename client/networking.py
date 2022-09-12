@@ -16,3 +16,7 @@ def receiveOutput(socket):
     msg = msg.decode('utf-8')
     return msg
 
+def receivedFile(socket):
+    fileName = socket.recv(4096).rstrip(b'\0').decode('utf-8')
+    data = socket.recv(4096).rstrip(b'\0').decode('utf-8')
+    return data, fileName
