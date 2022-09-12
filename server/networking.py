@@ -46,7 +46,7 @@ def sendMessage(sock, address, message):
     message = str(message) +'\0'
     try:
         sock.sendall(message.encode('utf-8'))
-        print("Sending Message: " + message)
+        print("Sending Message...")
         return 0
     except ( ConnectionError, BrokenPipeError ):
         print('Connection Closed')
