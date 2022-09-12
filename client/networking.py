@@ -1,4 +1,5 @@
 def sendCommand(socket, command, encryptionType):
+    #TODO: Send encryption types here
     command += '\0'
     socket.sendall(command.encode('utf-8'))
     return 0

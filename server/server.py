@@ -16,4 +16,7 @@ if __name__ == '__main__':
         message = networking.handleClient(clientSocket, address)
         print('{}: {}'.format(address, message))
 
+        #TODO: Decrypt this message
+        #TODO: Encrypt this message before sending
+
         networking.sendMessage(clientSocket, address, message, 'plain')

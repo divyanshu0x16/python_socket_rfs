@@ -19,7 +19,6 @@ if __name__ == '__main__':
             encryptedCommand, encryptionType = cryptoService.encryptText(command)
             networking.sendCommand(sock, encryptedCommand, encryptionType)
             receivedOutput = networking.receiveOutput(sock)
-            print(receivedOutput)
             print(cryptoService.decryptText(receivedOutput, encryptionType))
         except ConnectionError:
             print('Socket Error')
