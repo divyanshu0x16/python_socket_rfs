@@ -20,7 +20,6 @@ if __name__ == '__main__':
 
         decryptedCommand = cryptoService.decryptText(message, int(encryptionType))
         
-        #TODO: Run the command and get output
         output = fileService.handleCommand(decryptedCommand)
 
         encryptedMessage = cryptoService.encryptText(output, int(encryptionType))
