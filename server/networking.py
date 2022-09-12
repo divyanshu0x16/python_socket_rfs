@@ -36,6 +36,15 @@ def handleClient(sock, address):
         return msg
     except ( ConnectionError, BrokenPipeError ):
         print('Socket Error')
+
+def sendMessage(sock, address, message, encryptionType):
+    message = str(message) +'\0'
+    try:
+        sock.sendall(message.encode('utf-8'))
+        print(message)
+        return 0
+    except ( ConnectionError, BrokenPipeError, TypeError ):
+        print('Socket error')
     finally:
-        print('Closed connection to {}'.format(address))
+        print('Closed connection')
         sock.close()

@@ -4,6 +4,15 @@ def sendCommand(socket, command, encryptionType):
     return 0
 
 def receiveOutput(socket):
-    receivedOutput = socket.recv(4096)
-    return receivedOutput
+    data = bytearray()
+    msg = ''
+    while not msg:
+        recvd = socket.recv(4096)
+        if not recvd:
+            raise ConnectionError()
+        data = data + recvd
+        if b'\0' in recvd:
+            msg = data.rstrip(b'\0')
+    msg = msg.decode('utf-8')
+    return msg
 
