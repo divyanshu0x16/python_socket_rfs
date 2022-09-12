@@ -15,12 +15,14 @@ if __name__ == '__main__':
 
         message, encryptionType = networking.handleClient(clientSocket, address)
         if(message == 'Error'):
-            print('Socket Error')
+            print('Connection Closed')
+            continue
 
         decryptedCommand = cryptoService.decryptText(message, int(encryptionType))
         
         #TODO: Run the command and get output
+        output = fileService.handleCommand(decryptedCommand)
 
-        encryptedMessage = cryptoService.encryptText(decryptedCommand, int(encryptionType))
+        encryptedMessage = cryptoService.encryptText(output, int(encryptionType))
 
         networking.sendMessage(clientSocket, address, encryptedMessage)

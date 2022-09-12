@@ -14,7 +14,7 @@ def handleCommand(command):
         if os.path.isdir(file_path):
             return command
         else:
-            raise Exception('not a valid directory: %s'%(file_path))
+            return ('not a valid directory: %s'%(file_path))
     elif ( command.startswith('dwd ') or command.startswith('upd ') ):
         #checking if the path is a file
         file_path = command[4:]
@@ -22,5 +22,4 @@ def handleCommand(command):
         if os.path.isfile(file_path):
             return command
         else:
-            raise Exception('not a valid file: %s'%(file_path))
-    raise Exception('Please enter a valid command')
+            return ('not a valid file: %s'%(file_path))
