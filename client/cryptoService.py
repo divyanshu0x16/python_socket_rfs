@@ -5,6 +5,7 @@ def encryptText(text, typeOfEncryption = None):
             typeOfEncryption = int(input('enter the type of encryption you want. input: \n1 for plain \n2 for caesar \n3 for transpose\n'))
         except:
             print('invalid type entered. try again')
+            continue
         
         if (typeOfEncryption not in range(1, 4)):
             print('invalid type entered. try again')
