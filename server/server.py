@@ -21,12 +21,17 @@ if __name__ == '__main__':
         decryptedCommand = cryptoService.decryptText(message, int(encryptionType))
         
         if( decryptedCommand.startswith('dwd ') ):
-            data, fileName = fileService.handleCommand(decryptedCommand)
-            
-            encryptedData = cryptoService.encryptText(data, int(encryptionType))
-            encryptedName = cryptoService.encryptText(fileName, int(encryptionType))
 
-            networking.sendFile(clientSocket, encryptedData, encryptedName)
+            try:
+                data, fileName = fileService.handleCommand(decryptedCommand)
+            
+                encryptedData = cryptoService.encryptText(data, int(encryptionType))
+                encryptedName = cryptoService.encryptText(fileName, int(encryptionType))
+
+                networking.sendFile(clientSocket, encryptedData, encryptedName)
+            except ( ValueError ):
+                networking.sendMessage(clientSocket, address, cryptoService.encryptText('NOK', int(encryptionType)))
+
         elif( decryptedCommand.startswith('upd ')):
             data, fileName = networking.receiveFile(clientSocket)
 

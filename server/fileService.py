@@ -30,8 +30,6 @@ def handleCommand(command):
             return data, fileName
         else:
             return 'NOK'
-    else:
-        return 'NOK'
 
 def writeFile(data, name):
     file = open(name, 'w')

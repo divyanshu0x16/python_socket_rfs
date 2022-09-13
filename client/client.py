@@ -21,11 +21,15 @@ if __name__ == '__main__':
 
             if( command.startswith('dwd ') ):
                 data, fileName = networking.receivedFile(sock)
-            
+
                 decryptedData = cryptoService.decryptText(data, encryptionType)
                 decryptedName = cryptoService.decryptText(fileName, encryptionType)
 
-                fileService.writeFile(decryptedData, decryptedName)
+                if('NOK' in decryptedName):
+                    print('invalid file requested')
+                    print('NOK')
+                else:
+                    fileService.writeFile(decryptedData, decryptedName)
             elif( command.startswith('upd ')):
                 data, fileName = fileService.readFile(command)
 
