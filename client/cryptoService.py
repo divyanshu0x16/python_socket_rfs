@@ -1,7 +1,15 @@
 def encryptText(text, typeOfEncryption = None):
 
-    if(typeOfEncryption == None):
-        typeOfEncryption = int(input('enter the type of encryption you want. input: \n1 for plain \n2 for caesar \n3 for transpose\n'))
+    while(typeOfEncryption == None or typeOfEncryption not in range(1, 4)):
+        try:
+            typeOfEncryption = int(input('enter the type of encryption you want. input: \n1 for plain \n2 for caesar \n3 for transpose\n'))
+        except:
+            print('invalid type entered. try again')
+        
+        if (typeOfEncryption not in range(1, 4)):
+            print('invalid type entered. try again')
+        else:
+            break
 
     if (typeOfEncryption == 1):
         return text, 1
@@ -26,8 +34,6 @@ def encryptText(text, typeOfEncryption = None):
 
     elif (typeOfEncryption == 3):
         return text[::-1], 3
-
-    raise Exception('enter a valid type')
 
 def decryptText(text, encryptionType):
 
