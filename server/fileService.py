@@ -16,7 +16,7 @@ def handleCommand(command):
             os.chdir(filePath)
             return 'OK'
         else:
-            return 'NOK'
+            return 'invlaid directory specified\nNOK'
     elif ( command.startswith('dwd ') ):
         #checking if the path is a file
         filePath = command[4:]
@@ -30,6 +30,8 @@ def handleCommand(command):
             return data, fileName
         else:
             return 'NOK'
+    
+    return 'invalid command requested'
 
 def writeFile(data, name):
     file = open(name, 'w')

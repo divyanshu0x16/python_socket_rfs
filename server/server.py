@@ -29,6 +29,7 @@ if __name__ == '__main__':
                 encryptedName = cryptoService.encryptText(fileName, int(encryptionType))
 
                 networking.sendFile(clientSocket, encryptedData, encryptedName)
+                networking.sendMessage(clientSocket, address, cryptoService.encryptText('OK', int(encryptionType)))
             except ( ValueError ):
                 networking.sendMessage(clientSocket, address, cryptoService.encryptText('NOK', int(encryptionType)))
 

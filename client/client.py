@@ -30,6 +30,9 @@ if __name__ == '__main__':
                     print('NOK')
                 else:
                     fileService.writeFile(decryptedData, decryptedName)
+                    
+                    receivedOutput = networking.receiveOutput(sock)
+                    print(cryptoService.decryptText(receivedOutput, encryptionType))
             elif( command.startswith('upd ')):
                 data, fileName = fileService.readFile(command)
 
