@@ -34,15 +34,18 @@ if __name__ == '__main__':
                     receivedOutput = networking.receiveOutput(sock)
                     print(cryptoService.decryptText(receivedOutput, encryptionType))
             elif( command.startswith('upd ')):
-                data, fileName = fileService.readFile(command)
+                try:
+                    data, fileName = fileService.readFile(command)
 
-                encryptedName = cryptoService.encryptText(fileName, encryptionType)[0]
-                encryptedData = cryptoService.encryptText(data, encryptionType)[0]
+                    encryptedName = cryptoService.encryptText(fileName, encryptionType)[0]
+                    encryptedData = cryptoService.encryptText(data, encryptionType)[0]
 
-                networking.sendFile(sock, encryptedData, encryptedName)
+                    networking.sendFile(sock, encryptedData, encryptedName)
 
-                receivedOutput = networking.receiveOutput(sock)
-                print(cryptoService.decryptText(receivedOutput, encryptionType))
+                    receivedOutput = networking.receiveOutput(sock)
+                    print(cryptoService.decryptText(receivedOutput, encryptionType))
+                except:
+                    print('error in sending file\nNOK')
             else:
                 receivedOutput = networking.receiveOutput(sock)
                 print(cryptoService.decryptText(receivedOutput, encryptionType))
