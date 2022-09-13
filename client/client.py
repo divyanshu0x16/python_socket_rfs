@@ -17,6 +17,10 @@ if __name__ == '__main__':
                 break
 
             encryptedCommand, encryptionType = cryptoService.encryptText(command)
+
+            if encryptionType == 0:
+                break
+            
             networking.sendCommand(sock, encryptedCommand, encryptionType)
 
             if( command.startswith('dwd ') ):
