@@ -12,3 +12,16 @@ def writeFile(data, name):
     file.write(data)
     file.close()
     return 0
+
+def readFile(command):
+    filePath = command[4:]
+
+    if os.path.isfile(filePath):
+        fileName = os.path.basename(filePath)
+        #TODO: Check for binary file
+        file = open(filePath, 'r')
+        data = file.read()
+
+        return data, fileName
+    else:
+        raise Exception('enter a valid file path')

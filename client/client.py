@@ -26,6 +26,13 @@ if __name__ == '__main__':
                 decryptedName = cryptoService.decryptText(fileName, encryptionType)
 
                 fileService.writeFile(decryptedData, decryptedName)
+            elif( command.startswith('upd ')):
+                data, fileName = fileService.readFile(command)
+
+                encryptedName = cryptoService.encryptText(fileName, encryptionType)[0]
+                encryptedData = cryptoService.encryptText(data, encryptionType)[0]
+
+                networking.sendFile(sock, encryptedData, encryptedName)
             else:
                 receivedOutput = networking.receiveOutput(sock)
                 print(cryptoService.decryptText(receivedOutput, encryptionType))

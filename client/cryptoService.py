@@ -1,5 +1,7 @@
-def encryptText(text):
-    typeOfEncryption = int(input('enter the type of encryption you want. input: \n1 for plain \n2 for caesar \n3 for transpose\n'))
+def encryptText(text, typeOfEncryption = None):
+
+    if(typeOfEncryption == None):
+        typeOfEncryption = int(input('enter the type of encryption you want. input: \n1 for plain \n2 for caesar \n3 for transpose\n'))
 
     if (typeOfEncryption == 1):
         return text, 1

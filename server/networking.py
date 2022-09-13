@@ -68,3 +68,15 @@ def sendFile(sock, data, fileName):
     finally:
         print('Connection Closed')
         sock.close()
+
+def receiveFile(sock):
+    try:
+        fileName = sock.recv(4096).rstrip(b'\0').decode('utf-8')
+        data = sock.recv(4096).rstrip(b'\0').decode('utf-8')
+
+        return data, fileName
+    except ( ConnectionError ):
+        print('Connection Error')
+    finally:
+        print('Connection Closed')
+        sock.close()

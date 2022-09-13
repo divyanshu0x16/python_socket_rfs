@@ -19,9 +19,7 @@ if __name__ == '__main__':
             continue
 
         decryptedCommand = cryptoService.decryptText(message, int(encryptionType))
-
-        #TODO: Implement 'upd' command support
-
+        
         if( decryptedCommand.startswith('dwd ') ):
             data, fileName = fileService.handleCommand(decryptedCommand)
             
@@ -29,6 +27,13 @@ if __name__ == '__main__':
             encryptedName = cryptoService.encryptText(fileName, int(encryptionType))
 
             networking.sendFile(clientSocket, encryptedData, encryptedName)
+        elif( decryptedCommand.startswith('upd ')):
+            data, fileName = networking.receiveFile(clientSocket)
+
+            decryptedData = cryptoService.decryptText(data, int(encryptionType))
+            decryptedName = cryptoService.decryptText(fileName, int(encryptionType))
+
+            fileService.writeFile(decryptedData, decryptedName)
         else:
             output = fileService.handleCommand(decryptedCommand)
             encryptedMessage = cryptoService.encryptText(output, int(encryptionType))

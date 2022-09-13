@@ -20,6 +20,20 @@ def receivedFile(socket):
     try:
         fileName = socket.recv(4096).rstrip(b'\0').decode('utf-8')
         data = socket.recv(4096).rstrip(b'\0').decode('utf-8')
+
+        return data, fileName
     except:
         raise ConnectionError()
-    return data, fileName
+
+def sendFile(sock, data, fileName):
+    fileName = fileName + '\0'
+    try:
+        print('Sending FileName... ')
+        sock.sendall(fileName.encode('utf-8'))
+        print('Sending Data... ')
+        sock.sendall(data.encode('utf-8'))
+    except ( ConnectionError, BrokenPipeError ):
+        raise ConnectionError()
+    finally:
+        print('Connection Closed')
+
