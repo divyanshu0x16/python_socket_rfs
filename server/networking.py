@@ -42,8 +42,6 @@ def handleClient(sock, address):
     except ( ConnectionError, BrokenPipeError ):
         return 'Error', 0
 
-#TODO: Check for sending status codes over TCP
-
 def sendMessage(sock, address, message):
     message = str(message) +'\0'
     try:
@@ -68,12 +66,11 @@ def sendFile(sock, data, fileName):
 
 def receiveFile(sock):
     try:
+        print('Receiving File Name...')
         fileName = sock.recv(4096).rstrip(b'\0').decode('utf-8')
+        print('Receiving File Data...')
         data = sock.recv(4096).rstrip(b'\0').decode('utf-8')
 
         return data, fileName
     except ( ConnectionError ):
         print('Connection Error')
-    finally:
-        print('Connection Closed')
-        sock.close()

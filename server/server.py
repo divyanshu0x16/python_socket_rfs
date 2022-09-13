@@ -34,12 +34,18 @@ if __name__ == '__main__':
                 networking.sendMessage(clientSocket, address, cryptoService.encryptText('NOK', int(encryptionType)))
 
         elif( decryptedCommand.startswith('upd ')):
-            data, fileName = networking.receiveFile(clientSocket)
 
-            decryptedData = cryptoService.decryptText(data, int(encryptionType))
-            decryptedName = cryptoService.decryptText(fileName, int(encryptionType))
+            try:
+                data, fileName = networking.receiveFile(clientSocket)
 
-            fileService.writeFile(decryptedData, decryptedName)
+                decryptedData = cryptoService.decryptText(data, int(encryptionType))
+                decryptedName = cryptoService.decryptText(fileName, int(encryptionType))
+
+                fileService.writeFile(decryptedData, decryptedName)
+                networking.sendMessage(clientSocket, address, cryptoService.encryptText('OK', int(encryptionType)))
+            except:
+                networking.sendMessage(clientSocket, address, cryptoService.encryptText('NOK', int(encryptionType)))
+
         else:
             output = fileService.handleCommand(decryptedCommand)
             encryptedMessage = cryptoService.encryptText(output, int(encryptionType))

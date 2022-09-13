@@ -15,7 +15,6 @@ def readFile(command):
 
     if os.path.isfile(filePath):
         fileName = os.path.basename(filePath)
-        #TODO: Check for binary file
         file = open(filePath, 'r')
         data = file.read()
 

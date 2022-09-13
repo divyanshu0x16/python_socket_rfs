@@ -23,7 +23,6 @@ def handleCommand(command):
         
         if os.path.isfile(filePath):
             fileName = os.path.basename(filePath)
-            #TODO: Check for binary file and different encryption other than plain
             file = open(filePath, 'r')
             data = file.read()
 
@@ -37,4 +36,5 @@ def writeFile(data, name):
     file = open(name, 'w')
     file.write(data)
     file.close()
+    print('File Written Successfully')
     return 0

@@ -34,6 +34,4 @@ def sendFile(sock, data, fileName):
         sock.sendall(data.encode('utf-8'))
     except ( ConnectionError, BrokenPipeError ):
         raise ConnectionError()
-    finally:
-        print('Connection Closed')
 
