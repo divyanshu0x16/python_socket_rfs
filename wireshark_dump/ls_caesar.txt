@@ -1,0 +1,89 @@
+No.     Time           Source                Destination           Protocol Length Info
+      1 0.000000000    127.0.0.1             127.0.0.1             TCP      73     44170 → 12001 [PSH, ACK] Seq=1 Ack=1 Win=512 Len=5 TSval=2231309663 TSecr=2231232518
+
+Frame 1: 73 bytes on wire (584 bits), 73 bytes captured (584 bits) on interface any, id 0
+Linux cooked capture v1
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 44170, Dst Port: 12001, Seq: 1, Ack: 1, Len: 5
+Data (5 bytes)
+
+0000  6e 75 26 32 00                                    nu&2.
+
+No.     Time           Source                Destination           Protocol Length Info
+      2 0.000016345    127.0.0.1             127.0.0.1             TCP      68     12001 → 44170 [ACK] Seq=1 Ack=6 Win=512 Len=0 TSval=2231309663 TSecr=2231309663
+
+Frame 2: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface any, id 0
+Linux cooked capture v1
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 12001, Dst Port: 44170, Seq: 1, Ack: 6, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+      3 0.001263845    127.0.0.1             127.0.0.1             TCP      137    12001 → 44170 [PSH, ACK] Seq=1 Ack=6 Win=512 Len=69 TSval=2231309664 TSecr=2231309663
+
+Frame 3: 137 bytes on wire (1096 bits), 137 bytes captured (1096 bits) on interface any, id 0
+Linux cooked capture v1
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 12001, Dst Port: 44170, Seq: 1, Ack: 6, Len: 69
+Data (69 bytes)
+
+0000  65 74 61 72 76 71 55 67 74 78 6b 65 67 2e 72 61   etarvqUgtxkeg.ra
+0010  0a 68 6b 6e 67 55 67 74 78 6b 65 67 2e 72 61 0a   .hkngUgtxkeg.ra.
+0020  70 67 76 79 71 74 6d 6b 70 69 2e 72 61 0a 5f 5f   pgvyqtmkpi.ra.__
+0030  72 61 65 63 65 6a 67 5f 5f 0a 75 67 74 78 67 74   raecejg__.ugtxgt
+0040  2e 72 61 0a 00                                    .ra..
+
+No.     Time           Source                Destination           Protocol Length Info
+      4 0.001272161    127.0.0.1             127.0.0.1             TCP      68     44170 → 12001 [ACK] Seq=6 Ack=70 Win=512 Len=0 TSval=2231309664 TSecr=2231309664
+
+Frame 4: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface any, id 0
+Linux cooked capture v1
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 44170, Dst Port: 12001, Seq: 6, Ack: 70, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+      5 0.001328698    127.0.0.1             127.0.0.1             TCP      68     12001 → 44170 [FIN, ACK] Seq=70 Ack=6 Win=512 Len=0 TSval=2231309664 TSecr=2231309664
+
+Frame 5: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface any, id 0
+Linux cooked capture v1
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 12001, Dst Port: 44170, Seq: 70, Ack: 6, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+      6 0.001376903    127.0.0.1             127.0.0.1             TCP      68     44170 → 12001 [FIN, ACK] Seq=6 Ack=71 Win=512 Len=0 TSval=2231309664 TSecr=2231309664
+
+Frame 6: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface any, id 0
+Linux cooked capture v1
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 44170, Dst Port: 12001, Seq: 6, Ack: 71, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+      7 0.001384380    127.0.0.1             127.0.0.1             TCP      68     12001 → 44170 [ACK] Seq=71 Ack=7 Win=512 Len=0 TSval=2231309664 TSecr=2231309664
+
+Frame 7: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface any, id 0
+Linux cooked capture v1
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 12001, Dst Port: 44170, Seq: 71, Ack: 7, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+      8 0.001438916    127.0.0.1             127.0.0.1             TCP      76     39480 → 12001 [SYN] Seq=0 Win=65495 Len=0 MSS=65495 SACK_PERM=1 TSval=2231309664 TSecr=0 WS=128
+
+Frame 8: 76 bytes on wire (608 bits), 76 bytes captured (608 bits) on interface any, id 0
+Linux cooked capture v1
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 39480, Dst Port: 12001, Seq: 0, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+      9 0.001446419    127.0.0.1             127.0.0.1             TCP      76     12001 → 39480 [SYN, ACK] Seq=0 Ack=1 Win=65483 Len=0 MSS=65495 SACK_PERM=1 TSval=2231309664 TSecr=2231309664 WS=128
+
+Frame 9: 76 bytes on wire (608 bits), 76 bytes captured (608 bits) on interface any, id 0
+Linux cooked capture v1
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 12001, Dst Port: 39480, Seq: 0, Ack: 1, Len: 0
+
+No.     Time           Source                Destination           Protocol Length Info
+     10 0.001452560    127.0.0.1             127.0.0.1             TCP      68     39480 → 12001 [ACK] Seq=1 Ack=1 Win=65536 Len=0 TSval=2231309664 TSecr=2231309664
+
+Frame 10: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface any, id 0
+Linux cooked capture v1
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 39480, Dst Port: 12001, Seq: 1, Ack: 1, Len: 0
