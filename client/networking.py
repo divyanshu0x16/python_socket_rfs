@@ -19,7 +19,7 @@ def receiveOutput(socket):
 def receivedFile(socket):
     try:
         fileName = socket.recv(4096).rstrip(b'\0').decode('utf-8')
-        data = socket.recv(4096).rstrip(b'\0').decode('utf-8')
+        data = socket.recv(4096)
 
         return data, fileName
     except:

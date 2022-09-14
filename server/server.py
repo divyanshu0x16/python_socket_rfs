@@ -23,12 +23,11 @@ if __name__ == '__main__':
         if( decryptedCommand.startswith('dwd ') ):
 
             try:
-                data, fileName = fileService.handleCommand(decryptedCommand)
-            
-                encryptedData = cryptoService.encryptText(data, int(encryptionType))
+                file, fileName = fileService.handleCommand(decryptedCommand)
+
                 encryptedName = cryptoService.encryptText(fileName, int(encryptionType))
 
-                networking.sendFile(clientSocket, encryptedData, encryptedName)
+                networking.sendFile(clientSocket, file, encryptedName)
                 networking.sendMessage(clientSocket, address, cryptoService.encryptText('OK', int(encryptionType)))
             except ( ValueError ):
                 networking.sendMessage(clientSocket, address, cryptoService.encryptText('NOK', int(encryptionType)))

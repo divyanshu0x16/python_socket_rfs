@@ -24,16 +24,15 @@ if __name__ == '__main__':
             networking.sendCommand(sock, encryptedCommand, encryptionType)
 
             if( command.startswith('dwd ') ):
-                data, fileName = networking.receivedFile(sock)
+                file, fileName = networking.receivedFile(sock)
 
-                decryptedData = cryptoService.decryptText(data, encryptionType)
                 decryptedName = cryptoService.decryptText(fileName, encryptionType)
-
-                if('NOK' in decryptedName):
+                
+                if('NOK' in fileName):
                     print('invalid file requested')
                     print('NOK')
                 else:
-                    fileService.writeFile(decryptedData, decryptedName)
+                    fileService.writeFile(file, decryptedName)
 
                     receivedOutput = networking.receiveOutput(sock)
                     print(cryptoService.decryptText(receivedOutput, encryptionType))

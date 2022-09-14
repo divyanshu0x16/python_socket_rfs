@@ -23,10 +23,10 @@ def handleCommand(command):
         
         if os.path.isfile(filePath):
             fileName = os.path.basename(filePath)
-            file = open(filePath, 'r')
-            data = file.read()
+            file = open(filePath, 'rb')
+            #data = file.read()
 
-            return data, fileName
+            return file, fileName
         else:
             return 'NOK'
     

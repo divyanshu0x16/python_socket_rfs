@@ -5,7 +5,7 @@ def takeInput():
     return command
 
 def writeFile(data, name):
-    file = open(name, 'w')
+    file = open(name, 'wb')
     file.write(data)
     file.close()
     return 0
