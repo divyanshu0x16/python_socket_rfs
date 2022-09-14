@@ -24,8 +24,6 @@ def handleCommand(command):
         if os.path.isfile(filePath):
             fileName = os.path.basename(filePath)
             file = open(filePath, 'rb')
-            #data = file.read()
-
             return file, fileName
         else:
             return 'NOK'
@@ -33,7 +31,7 @@ def handleCommand(command):
     return 'invalid command requested'
 
 def writeFile(data, name):
-    file = open(name, 'w')
+    file = open(name, 'wb')
     file.write(data)
     file.close()
     print('File Written Successfully')

@@ -15,9 +15,7 @@ def readFile(command):
 
     if os.path.isfile(filePath):
         fileName = os.path.basename(filePath)
-        file = open(filePath, 'r')
-        data = file.read()
-
-        return data, fileName
+        file = open(filePath, 'rb')
+        return file, fileName
     else:
         raise Exception('enter a valid file path')

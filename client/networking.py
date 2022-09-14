@@ -25,13 +25,13 @@ def receivedFile(socket):
     except:
         raise ConnectionError()
 
-def sendFile(sock, data, fileName):
+def sendFile(sock, file, fileName):
     fileName = fileName + '\0'
     try:
         print('Sending FileName... ')
         sock.sendall(fileName.encode('utf-8'))
         print('Sending Data... ')
-        sock.sendall(data.encode('utf-8'))
+        sock.sendfile(file)
     except ( ConnectionError, BrokenPipeError ):
         raise ConnectionError()
 

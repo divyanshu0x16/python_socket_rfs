@@ -37,10 +37,10 @@ if __name__ == '__main__':
             try:
                 data, fileName = networking.receiveFile(clientSocket)
 
-                decryptedData = cryptoService.decryptText(data, int(encryptionType))
+                #decryptedData = cryptoService.decryptText(data, int(encryptionType))
                 decryptedName = cryptoService.decryptText(fileName, int(encryptionType))
 
-                fileService.writeFile(decryptedData, decryptedName)
+                fileService.writeFile(data, decryptedName)
                 networking.sendMessage(clientSocket, address, cryptoService.encryptText('OK', int(encryptionType)))
             except:
                 networking.sendMessage(clientSocket, address, cryptoService.encryptText('NOK', int(encryptionType)))

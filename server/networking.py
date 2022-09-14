@@ -69,7 +69,7 @@ def receiveFile(sock):
         print('Receiving File Name...')
         fileName = sock.recv(4096).rstrip(b'\0').decode('utf-8')
         print('Receiving File Data...')
-        data = sock.recv(4096).rstrip(b'\0').decode('utf-8')
+        data = sock.recv(4096)
 
         return data, fileName
     except ( ConnectionError ):
