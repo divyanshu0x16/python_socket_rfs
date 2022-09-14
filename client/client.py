@@ -41,7 +41,6 @@ if __name__ == '__main__':
                     file, fileName = fileService.readFile(command)
 
                     encryptedName = cryptoService.encryptText(fileName, encryptionType)[0]
-                    #encryptedData = cryptoService.encryptText(data, encryptionType)[0]
 
                     networking.sendFile(sock, file, encryptedName)
 

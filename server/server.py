@@ -37,7 +37,6 @@ if __name__ == '__main__':
             try:
                 data, fileName = networking.receiveFile(clientSocket)
 
-                #decryptedData = cryptoService.decryptText(data, int(encryptionType))
                 decryptedName = cryptoService.decryptText(fileName, int(encryptionType))
 
                 fileService.writeFile(data, decryptedName)
