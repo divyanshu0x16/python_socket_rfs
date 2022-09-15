@@ -24,11 +24,10 @@ Then follow the instructions on command-line.
 
   - Executing `dwd`
   
- ![executing_dwd](https://user-images.githubusercontent.com/62815174/190146547-64e20ea7-7fbf-4422-bae6-06ad741f0eb6.png)
+ ![executing_dwd](https://user-images.githubusercontent.com/62815174/190455468-b53a6e05-481b-4778-8345-f0a05f3d1bfd.png)
 
   - Executing `upd`
   
- ![executing_upd](https://user-images.githubusercontent.com/62815174/190147010-9677c71e-4bd0-4d11-a9e6-a2ad11fee580.png)
+ ![executing_upd](https://user-images.githubusercontent.com/62815174/190455624-191922d7-5580-4f17-b942-a3a411030649.png)
 
-  
   
